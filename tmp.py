@@ -7,13 +7,11 @@ init(autoreset=True)
 
 
 
-def check_motherboard_type():
-    if os.path.exists("/sys/firmware/efi"):
-        return "UEFI"
-    else:
-        return "BIOS"
-    
-    
-print (Fore.YELLOW + "Checking the type of motherboard...\n")
-motherboard_type = check_motherboard_type()
-print(Fore.LIGHTCYAN_EX + "Motherboard Type:", motherboard_type)
+def kb_to_gb(kilobytes):
+    gigabytes = kilobytes / (1024 * 1024)  # 1 GB = 1024 MB = 1024 * 1024 KB
+    return round(gigabytes)
+
+# Виклик функції
+kilobytes = 8046656
+gigabytes = kb_to_gb(kilobytes)
+print(f"{kilobytes} KB = {gigabytes} GB")
