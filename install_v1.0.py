@@ -10,11 +10,16 @@ def check_internet_connection():
  
 def get_motherboard_type():
     while True:
-        choice = input("Select motherboard type (BIOS/MBR or UEFI/GPT): ").strip().lower()
-        if choice in ["bios", "mbr", "uefi", "gpt"]:
-            return choice
+        print("Select motherboard type:")
+        print("1. BIOS/MBR")
+        print("2. UEFI/GPT")
+        choice = input("Enter 1 or 2: ").strip()
+        if choice == "1":
+            return "bios"
+        elif choice == "2":
+            return "uefi"
         else:
-            print("Invalid choice. Please enter 'bios', 'mbr', 'uefi', or 'gpt'.")
+            print("Invalid choice. Please enter 1 for BIOS/MBR or 2 for UEFI/GPT.")
             
 def get_swap_info():
     choice = input("Do you want to create a SWAP file? (yes/no): ").strip().lower()
